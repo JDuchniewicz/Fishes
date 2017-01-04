@@ -4,52 +4,59 @@
 
 #include "action.h"
 
-
-bool check_coordinates(int x, int y){
+bool checkCoordinates(int x, int y){
     //if they are not valid then return false
     return true;
 }
 //checks how many fishes are there on the field we want to move on
-int check_how_many_fishes(int x, int y){
-    int fishes;
+int checkHowManyFishes(struct floe *ourFloe){
+    int fishes = ourFloe->fishes;
     return fishes;
 }
 
 //checks whether there is a penguin on the field ...
-bool check_penguin(int x, int y){
-    return true;
+bool checkPenguin(struct floe *Floe){
+    return Floe->penguins ? true : false; // wee need to check whether nr of penguins on a floe is equal to 0
 }
 
 //places penguin
-void place_penguin(int x, int y){
+void placePenguin(int x, int y){
     return;
 }
 
-//checks whetehr they are vakud
-bool check_target_coordinates(int x, int y){
+//checks whether they are valid
+bool checkTargetCoordinates(int x, int y){
     return true;
 }
 
-bool check_valid_move(int x, int y){
+bool checkValidMove(int x, int y){
     return true;
 }
 
-void movement(){
-    //we collect fishes at the beggining of this function
-    int x1, x2, y1, y2;
-    scanf("%i %i %i %i", &x1, &y1, &x2, &y2);  //x1,y1 are coordinates of a penguin user wants to move, x2,y2 are target coordinates
+void movement(struct floe *nextFloe){
+    int nextX = nextFloe->x;
+    int nextY = nextFloe->y;
+    if(!checkPenguin(nextFloe)){//here we check next field for penguin presence
+        printf("Cannot move penguin to coordinates %d , %d -> One already there", nextX, nextY);
+        return;
+    } else if(!checkTargetCoordinates(nextX, nextY)){
+        printf("Cannot move penguin to coordinates %d , %d -> They are not valid", nextX, nextY);
+        return;
+    }  else if(!checkValidMove(nextX, nextY)){
+        printf("Cannot move penguin to coordinates %d , %d -> Not valid move", nextX, nextY);
+        return;
+    }
 
-    //check_coordinates(x1, y1); not useful
-    check_penguin(x2, y2); //here we check next field for penguin presence
-    check_target_coordinates(x2, y2);
-    check_valid_move(x2, y2);
+    //here we move the penguin onto the desired field
+
 
 }
 
-void placement(){
+void placement(struct floe *ourFloe){
     int x, y;
     scanf("%i %i", &x, &y);
-    if (check_coordinates(x,y) && check_how_many_fishes(x,y) == 1 && !check_penguin(x,y)){
-        place_penguin(x,y);
+    if (checkCoordinates(x, y) && checkHowManyFishes(ourFloe) == 1 && !checkPenguin(ourFloe)){
+        placePenguin(x, y);
+        ourFloe->penguins = 1; // we need to check which player's penguin we want to place here
     }
 }

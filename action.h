@@ -7,13 +7,15 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-bool check_coordinates(int x, int y);
-int check_how_many_fishes(int x, int y);
-bool check_penguin(int x, int y);
-void place_penguin(int x, int y);
-bool check_target_coordinates(int x, int y);
-bool check_valid_move(int x, int y);
-void movement();
-void placement();
+#include "map.h"
+
+bool checkCoordinates(int x, int y);
+void placePenguin(int x, int y);
+bool checkTargetCoordinates(int x, int y);
+bool checkValidMove(int x, int y);
+bool checkPenguin(struct floe *Floe);
+int checkHowManyFishes(struct floe *ourFloe);
+void movement(struct floe *nextFloe);
+void placement(struct floe *ourFloe);
 
 #endif //FISHES_ACTION_H
