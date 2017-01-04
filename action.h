@@ -9,6 +9,12 @@
 
 #include "map.h"
 
+struct floeMap{
+    int x;
+    int y;
+    bool isFloe;
+};
+
 bool checkCoordinates(int x, int y);
 void placePenguin(int x, int y);
 bool checkTargetCoordinates(int x, int y);

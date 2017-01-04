@@ -60,3 +60,4 @@ void placement(struct floe *ourFloe){
         ourFloe->penguins = 1; // we need to check which player's penguin we want to place here
     }
 }
+

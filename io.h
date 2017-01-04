@@ -6,11 +6,13 @@
 #define FISHES_IO_H
 #include <stdio.h>
 #include "map.h"
-FILE* openFile(char* name, char mode);
+FILE* openFile(char* name, char *mode);
 void writeFile(FILE* file);
 void readFile(FILE* file);
 int getOneCharAsInt(FILE* file);
 int getIntBySize(FILE *file);
-void readOneFloe(FILE* file, struct floe* oneFloe);
+int readOneFloe(FILE* file, struct floe* oneFloe, int status);
 void jumpToNextLine(FILE* file);
+void FirstLoadCycle();
+void UpdateContentCycle();
 #endif //FISHES_IO_H
