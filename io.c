@@ -21,17 +21,15 @@ void readFile(FILE* file, struct GameData* data, struct floe* floeptr) {
     int status = 0, floeIndex = 0, floeCount = 0;
     data->PlayerNum = getOneCharAsInt(file);
     data->PenguinNum = getOneCharAsInt(file);
+    jumpToNextLine(file);
     //TODO we need to ask whether the num of penguins after num of players is penguin per player or total penguin nr
-    // printf("%d", NumberOfPlayers);  //TODO check why it's not printing out
-    // TODO: check why it's not working, endless loop
     data->Player1ID = getIntBySize(file);
     jumpToNextLine(file);
-    data->Player1ID = getIntBySize(file);
+    data->Player2ID = getIntBySize(file);
     jumpToNextLine(file);
     jumpToNextLine(file);
     data->SizeX = getIntBySize(file);
     data->SizeY = getIntBySize(file);
-    jumpToNextLine(file);
     while (floeIndex != (data->SizeX * data->SizeY)) { // here we fill the floemap with values 1 by 1
         floeptr = &floes[floeIndex];
         status = readOneFloe(file, floeptr, status); //we monitor state of loading with returning status variable
@@ -46,6 +44,18 @@ void readFile(FILE* file, struct GameData* data, struct floe* floeptr) {
 //This function loops through global floeMap and returns whether a particular (x,y) is a floe and saves it
      MapFloes(data,floeptr,floeCount);
 
+}
+
+void peek(FILE *file)
+{
+    char c;
+
+    c = getc(file);
+    if(c=='\n'){
+        return;
+    }
+    ungetc(c, file);
+    return;
 }
 
 void MapFloes(struct GameData* gameDataForMap, struct floe* floeptr, int floeCount){
@@ -77,7 +87,7 @@ int getOneCharAsInt(FILE* file){
       if(c==EOF){
           return EOF; //we return EOF to break all continuation
       }
-  } while(c <= 48 || c >= 57);
+  } while(c < 48 || c >= 57);
     return c - '0';
 }
 
@@ -86,7 +96,7 @@ int getIntBySize(FILE *file){
     int ret = 0 , i = 0;
     char content[5] = "";
     char c;
-    while ((c = fgetc(file) != EOF)){
+    while ((c = fgetc(file)) != EOF){
         if(c == ':' || c == ';' || c == '\n' ){
             sscanf(content, "%d", &ret);
             return ret;
@@ -97,9 +107,16 @@ int getIntBySize(FILE *file){
     }
     return EOF; //we return EOF to break all continuation
 }
+void checkForEndl(FILE* file){
+    char c;
+    if((c=fgetc(file)) == '\n'){
+        return;
+    }
+}
 
 int readOneFloe(FILE* file, struct floe* oneFloe, int status){
     int x = 0, y = 0, fishes = 0, penguins = 0;
+    peek(file);
     x = getIntBySize(file);
     y = getIntBySize(file);
     fishes = getOneCharAsInt(file);
@@ -138,13 +155,15 @@ void runInteractive(){
 
     //FIRST READ
     readFile(fp,gdPointer,floePointer);
+    printMap(floes, gameData.SizeX, gameData.SizeY);
+    return;
 
     //PLACEMENT
         //ask user for placement coords and perform logic
     while(gameData.PenguinNum != 0){
         //READ FILE
         readFile(fp,gdPointer,floePointer);
-
+        return;
         //ask user for data
         //ensure we can place there
             //if yes -> change the floe's data and append penguin's coordinates to an array holding penguins locations

@@ -46,7 +46,7 @@ void printFirstUpper(int count){
 void printBarsAndFillNumbers(int count, struct floe floes[], int index){
     int i = 0;
     for(i=0; i < count; i++){
-        printf("| %d%d |",floes[index].penguins,floes[index].fishes); //first displayed is penguin and next fishg
+        printf("| %d%d |",floes[index*count + i].fishes,floes[index*count + i].penguins); //first displayed is fish then penguin
     }
     printf("\n");
     return;

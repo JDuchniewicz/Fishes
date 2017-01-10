@@ -64,9 +64,20 @@ void placement(struct floe *ourFloe){
 }
 */
 
-void runPlacement(char* fileName){
+void runPlacement(char* values){
     //open that file
+        //dissasemble the char values - parameters of the program
+        /*char pengArg[12];
+        int pengMax, currPeng, i;
 
+        strcpy(pengArg, argv[2]);
+
+        for (i=0; i<9; i++) //we change every non-numerical character in "penguins=[x]" to 0,
+            pengArg[i]='0'; //so that atoi can convert it to int leaving only x value
+
+        pengMax = atoi(pengArg);
+        readBrd(argv[3]); //reads the board from file
+*/
     //check if we can place a penguin
         // if we can -> perform placement on the best field -> greedy algorithm
         //decrement number of penguins available and append penguin's coordinates to prevent cheating
@@ -76,7 +87,7 @@ void runPlacement(char* fileName){
 
 }
 
-void runMovement(char* fileName){
+void runMovement(char* values){
     //open that file
     //then we check whether we can perform any movement
         //we choose the best suited penguin for that job

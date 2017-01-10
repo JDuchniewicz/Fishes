@@ -15,7 +15,7 @@
 //TODO distinguish between interactive and automatic game modes with preprocessor directives
 //TODO also add reading from command line phase, penguinsNr, inputname, outputname
 
-//#define interactive //comment to run in automatic
+#define interactive //comment to run in automatic
 
 
 int main(int argc, char* argv[]){

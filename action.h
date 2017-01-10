@@ -17,8 +17,8 @@ bool checkValidMove(int x, int y);
 bool checkPenguin(struct floe *Floe);
 bool checkIfIsAFloe();
 int checkHowManyFishes(struct floe *ourFloe);
-void runMovement(char* fileName);
-void runPlacement(char* fileName);
+void runMovement(char* values);
+void runPlacement(char* values);
 
 
 #endif //FISHES_ACTION_H
