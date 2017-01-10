@@ -33,6 +33,7 @@ bool checkValidMove(int x, int y){
     return true;
 }
 
+/*
 void movement(struct floe *nextFloe){
     int nextX = nextFloe->x;
     int nextY = nextFloe->y;
@@ -51,7 +52,8 @@ void movement(struct floe *nextFloe){
 
 
 }
-
+*/
+/*
 void placement(struct floe *ourFloe){
     int x, y;
     scanf("%i %i", &x, &y);
@@ -60,4 +62,27 @@ void placement(struct floe *ourFloe){
         ourFloe->penguins = 1; // we need to check which player's penguin we want to place here
     }
 }
+*/
 
+void runPlacement(char* fileName){
+    //open that file
+
+    //check if we can place a penguin
+        // if we can -> perform placement on the best field -> greedy algorithm
+        //decrement number of penguins available and append penguin's coordinates to prevent cheating
+    //else we exit and
+
+
+
+}
+
+void runMovement(char* fileName){
+    //open that file
+    //then we check whether we can perform any movement
+        //we choose the best suited penguin for that job
+        //if we can then we choose the best axis to move -> remember we can only specify axis to move
+            //then we loop movement until we can move no more, the floes behind us disappear, and we collect all the fishes from the fields
+            //we have been on
+    //else we exit
+
+}

@@ -8,20 +8,17 @@
 #include <stdio.h>
 
 #include "map.h"
-
-struct floeMap{
-    int x;
-    int y;
-    bool isFloe;
-};
+#include "io.h"
 
 bool checkCoordinates(int x, int y);
 void placePenguin(int x, int y);
 bool checkTargetCoordinates(int x, int y);
 bool checkValidMove(int x, int y);
 bool checkPenguin(struct floe *Floe);
+bool checkIfIsAFloe();
 int checkHowManyFishes(struct floe *ourFloe);
-void movement(struct floe *nextFloe);
-void placement(struct floe *ourFloe);
+void runMovement(char* fileName);
+void runPlacement(char* fileName);
+
 
 #endif //FISHES_ACTION_H
