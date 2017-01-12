@@ -4,16 +4,13 @@
 
 #include <string.h>
 #include <stdlib.h>
-#include "io.h"
 #include "action.h"
-#include "map.h"
 
 /* THIS IS OUR MAIN FILE
  * Here we only asses which course of action to take
  * */
 
-//TODO distinguish between interactive and automatic game modes with preprocessor directives
-//TODO also add reading from command line phase, penguinsNr, inputname, outputname
+//TODO: CREATE GENERATOR FOR INPUT FILE
 
 #define interactive //comment to run in automatic
 
@@ -23,7 +20,7 @@ int main(int argc, char* argv[]){
     char* placementOp = "phase=placement";
     char* movementOp = "phase=movement";
 
-    //THIS IS THE INTERCATIVE MODE
+    //THIS IS THE INTERACTIVE MODE
     #ifdef interactive
     runInteractive();
     #else

@@ -12,44 +12,81 @@ FILE* openFile(char* name, char *mode){
     return fp;
 }
 
-void writeFile(FILE* file){
-
-
-
+void writeFile(FILE* file, struct GameData* data, struct floe* floeptr){
+    int status = 0, floeIndex = 0, i= 0;
+    //WRITE FIRST LINE
+    fprintf(file, "%d;%d;\n", data->PlayerNum, data->PenguinNum);
+    //WRITE PLAYER ID'S SCORE'S AND PENGUIN'S LOCATIONS
+    fprintf(file, "%d:%d", data->Player1ID, data->score1);
+    for(i = 0; i < data->PenguinNum; i++){
+        fprintf(file,":%d:%d", playerOnePenguins[i].x, playerOnePenguins[i].y);
+    } fprintf(file, ";\n");
+    fprintf(file, "%d:%d", data->Player2ID, data->score2);
+    for(i = 0; i < data->PenguinNum; i++){
+        fprintf(file,":%d:%d", playerTwoPenguins[i].x, playerTwoPenguins[i].y);
+    } fprintf(file, ";\n");
+    //WRITE MAP SIZE
+    fprintf(file, "Map\n");
+    fprintf(file,"%d:%d\n", data->SizeX, data->SizeY);
+    //WRITE FLOES
+    while (floeIndex != (data->SizeX * data->SizeY)) { // here we write floeMap
+        floeptr = &floes[floeIndex];
+        fprintf(file, "%d:%d:%d:%d\n", floeptr->x, floeptr->y, floeptr->fishes, floeptr->penguins);
+        floeIndex++;
+    }
+    return;
 }
-void readFile(FILE* file, struct GameData* data, struct floe* floeptr) {
-    int status = 0, floeIndex = 0, floeCount = 0;
+void readFile(FILE* file, struct GameData* data, struct floe* floeptr)
+{
+    int status = 0, floeIndex = 0, i = 0;
+    //READ FIRST LINE
     data->PlayerNum = getOneCharAsInt(file);
     data->PenguinNum = getOneCharAsInt(file);
     jumpToNextLine(file);
-    //TODO we need to ask whether the num of penguins after num of players is penguin per player or total penguin nr
-    data->Player1ID = getIntBySize(file);
+    //READ PLAYER ID'S SCORE'S AND PENGUIN'S LOCATIONS
+    data->Player1ID = getIntBySize(file); //TODO: We need to reread array of penguin locations and save it into array, because in auto mode it needs the data every "frame"
+    data->score1 = getIntBySize(file);
+    for(i = 0; i < data->PenguinNum; i++){
+        playerOnePenguins[i].x = getIntBySize(file);
+        playerOnePenguins[i].y = getIntBySize(file);
+        if(playerOnePenguins[i].x==-1 && playerOnePenguins[i].y==-1){
+            data->player1RemainingPeng++;
+        }
+    }
     jumpToNextLine(file);
     data->Player2ID = getIntBySize(file);
+    data->score2 = getIntBySize(file);
+    for(i = 0; i < data->PenguinNum; i++){
+        playerTwoPenguins[i].x = getIntBySize(file);
+        playerTwoPenguins[i].y = getIntBySize(file);
+        if(playerTwoPenguins[i].x==-1 && playerTwoPenguins[i].y==-1){
+            data->player2RemainingPeng++;
+        }
+    }
     jumpToNextLine(file);
     jumpToNextLine(file);
+    //READ MAP SIZE
     data->SizeX = getIntBySize(file);
     data->SizeY = getIntBySize(file);
-    while (floeIndex != (data->SizeX * data->SizeY)) { // here we fill the floemap with values 1 by 1
+    //READ FLOES AND FILL THEM
+    while (floeIndex != (data->SizeX * data->SizeY)) {
         floeptr = &floes[floeIndex];
         status = readOneFloe(file, floeptr, status); //we monitor state of loading with returning status variable
         if (status == EOF) { //we return EOF to break all continuation of floe loading
             break;
         }
         floes[floeIndex] = *floeptr;
-        floeCount++;
         floeIndex++;  //increase index only by 1 because we want them ordered
     }
-    //TODO:we need to check whether it will compute the good amount of times
-//This function loops through global floeMap and returns whether a particular (x,y) is a floe and saves it
-     MapFloes(data,floeptr,floeCount);
+    return;
+
+     //MapFloes(data,floeptr,floeCount);
 
 }
 
 void peek(FILE *file)
 {
     char c;
-
     c = getc(file);
     if(c=='\n'){
         return;
@@ -58,6 +95,9 @@ void peek(FILE *file)
     return;
 }
 
+/*
+//i am not sure if we even need such struct like floemap, because we can add a field exists on each floe and just check them, we don't care what's
+//not loaded onto our map thus we don't need checking like this
 void MapFloes(struct GameData* gameDataForMap, struct floe* floeptr, int floeCount){
     int iterY = 0, iterX = 0, x = 0, y = 0, i = 0;
     while (iterY != gameDataForMap->SizeY) {
@@ -79,6 +119,8 @@ void MapFloes(struct GameData* gameDataForMap, struct floe* floeptr, int floeCou
 
     }
 }
+ */
+
 //Gets one char from input file and returns it
 int getOneCharAsInt(FILE* file){
     int c = 0;
@@ -107,12 +149,6 @@ int getIntBySize(FILE *file){
     }
     return EOF; //we return EOF to break all continuation
 }
-void checkForEndl(FILE* file){
-    char c;
-    if((c=fgetc(file)) == '\n'){
-        return;
-    }
-}
 
 int readOneFloe(FILE* file, struct floe* oneFloe, int status){
     int x = 0, y = 0, fishes = 0, penguins = 0;
@@ -129,6 +165,11 @@ int readOneFloe(FILE* file, struct floe* oneFloe, int status){
     oneFloe->y = y;
     oneFloe->fishes = fishes;
     oneFloe->penguins = penguins;
+    if(oneFloe->penguins || oneFloe->fishes){
+        oneFloe->isFloe = true;
+    } else{
+        oneFloe->isFloe = false;
+    }
     return 1;
 }
 
@@ -140,56 +181,3 @@ void jumpToNextLine(FILE* file){
     } while (c != '\n');
     return;
 }
-
-void runInteractive(){
-    //VARIABLES
-    char* fileName = "fileFormatMock.txt";
-    FILE* fp = openFile(fileName, "r+");
-
-    bool isOver = false;
-
-    struct floe* floePointer = floes;
-
-    struct GameData gameData;
-    struct GameData* gdPointer = &gameData;
-
-    //FIRST READ
-    readFile(fp,gdPointer,floePointer);
-    printMap(floes, gameData.SizeX, gameData.SizeY);
-    return;
-
-    //PLACEMENT
-        //ask user for placement coords and perform logic
-    while(gameData.PenguinNum != 0){
-        //READ FILE
-        readFile(fp,gdPointer,floePointer);
-        return;
-        //ask user for data
-        //ensure we can place there
-            //if yes -> change the floe's data and append penguin's coordinates to an array holding penguins locations
-
-
-
-        //SAVE FILE
-    }
-    //MOVEMENT
-    //ask user to tell us which penguin to move
-        //display the list of penguins with their corresponding coordinates -> this list will later be used as a reference for saving it into
-        //ask user for movement coords
-
-    while(!isOver){
-        //READ FILE
-
-        //ask user for data
-        //ensure we can place there
-        //if not then exit game
-
-        //SAVE FILE
-    }
-
-
-}
-
-
-//Will update all floes + scores + localization of penguins/ called whenever we move/place penguin and before closing the file
-void UpdateContentCycle();

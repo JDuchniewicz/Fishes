@@ -7,6 +7,7 @@
 void printMap(struct floe floes[],int rows, int columns){ //TODO: create a library from floe struct
     //change char array into a ice floes array and read their corresponding Penguin and fish nr details
     int i=0, index = 0;
+    printf("\n\n");
     printFirstUpper(columns);
     for(i=0; i<rows; i++){
         if(i==0 || i%2==0){ //shift middle bars by two either inside this function or inside printMidBarriers
