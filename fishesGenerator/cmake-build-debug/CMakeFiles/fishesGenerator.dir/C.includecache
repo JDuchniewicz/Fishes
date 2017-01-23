@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/jakubduchniewicz/ClionProjects/fishesGenerator/main.c
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+

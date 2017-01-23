@@ -4,10 +4,10 @@
 
 #include "map.h"
 
-void printMap(struct floe floes[],int rows, int columns){ //TODO: create a library from floe struct
-    //change char array into a ice floes array and read their corresponding Penguin and fish nr details
+void printMap(struct floe floes[],int rows, int columns){
     int i=0, index = 0;
     printf("\n\n");
+    columns/=2;
     printFirstUpper(columns);
     for(i=0; i<rows; i++){
         if(i==0 || i%2==0){ //shift middle bars by two either inside this function or inside printMidBarriers
@@ -45,9 +45,23 @@ void printFirstUpper(int count){
 }
 
 void printBarsAndFillNumbers(int count, struct floe floes[], int index){
-    int i = 0;
-    for(i=0; i < count; i++){
-        printf("| %d%d |",floes[index*count + i].fishes,floes[index*count + i].penguins); //first displayed is fish then penguin
+    struct floe* localptr;
+    int i = 0, playReplNum = 0;
+    int colNr = count*2;
+    for(i=0; i < colNr; i++){
+        localptr = &floes[index*colNr+i];
+        if(localptr->isFloe && localptr->canBeEntered){
+            if(localptr->penguins==gameData.Player1ID){
+                playReplNum = 1;
+            } else if (localptr->penguins==gameData.Player2ID){
+                playReplNum = 2;
+            } else{
+                playReplNum = 0;
+            }
+            printf("| %d%d |",localptr->fishes, playReplNum); //first displayed is fish then penguin
+        } else if(localptr->isFloe && !localptr->canBeEntered){
+            printf("|    |");
+        }
     }
     printf("\n");
     return;

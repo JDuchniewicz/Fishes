@@ -12,6 +12,7 @@ FILE* openFile(char* name, char *mode){
     return fp;
 }
 
+//add everywhere hardcoded ID option so only player1struct has always value 2137
 void writeFile(FILE* file, struct GameData* data, struct floe* floeptr){
     int status = 0, floeIndex = 0, i= 0;
     //WRITE FIRST LINE
@@ -44,7 +45,7 @@ void readFile(FILE* file, struct GameData* data, struct floe* floeptr)
     data->PenguinNum = getOneCharAsInt(file);
     jumpToNextLine(file);
     //READ PLAYER ID'S SCORE'S AND PENGUIN'S LOCATIONS
-    data->Player1ID = getIntBySize(file); //TODO: We need to reread array of penguin locations and save it into array, because in auto mode it needs the data every "frame"
+    data->Player1ID = getIntBySize(file);
     data->score1 = getIntBySize(file);
     for(i = 0; i < data->PenguinNum; i++){
         playerOnePenguins[i].x = getIntBySize(file);
@@ -155,8 +156,8 @@ int readOneFloe(FILE* file, struct floe* oneFloe, int status){
     peek(file);
     x = getIntBySize(file);
     y = getIntBySize(file);
-    fishes = getOneCharAsInt(file);
-    penguins = getOneCharAsInt(file);
+    fishes = getIntBySize(file);
+    penguins = getIntBySize(file);
     if( x == EOF || y == EOF || fishes == EOF || penguins == EOF){
         status = EOF; //we return EOF status to break all continuation
         return status;
@@ -165,10 +166,15 @@ int readOneFloe(FILE* file, struct floe* oneFloe, int status){
     oneFloe->y = y;
     oneFloe->fishes = fishes;
     oneFloe->penguins = penguins;
+    if(oneFloe->isFloe == true){
+        return 1;
+    }
     if(oneFloe->penguins || oneFloe->fishes){
         oneFloe->isFloe = true;
+        oneFloe->canBeEntered = true;
     } else{
         oneFloe->isFloe = false;
+        oneFloe->canBeEntered = false;
     }
     return 1;
 }

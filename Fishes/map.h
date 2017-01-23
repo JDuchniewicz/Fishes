@@ -20,6 +20,7 @@ struct floe //struct from which we create our board, contains nr of fishes and p
     int fishes;
     int penguins;
     bool isFloe;
+    bool canBeEntered;
 };
 
 struct floe floes[256];
