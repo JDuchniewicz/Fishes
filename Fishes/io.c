@@ -37,6 +37,7 @@ void writeFile(FILE* file, struct GameData* data, struct floe* floeptr){
     }
     return;
 }
+
 void readFile(FILE* file, struct GameData* data, struct floe* floeptr)
 {
     int status = 0, floeIndex = 0, i = 0;
@@ -95,32 +96,6 @@ void peek(FILE *file)
     ungetc(c, file);
     return;
 }
-
-/*
-//i am not sure if we even need such struct like floemap, because we can add a field exists on each floe and just check them, we don't care what's
-//not loaded onto our map thus we don't need checking like this
-void MapFloes(struct GameData* gameDataForMap, struct floe* floeptr, int floeCount){
-    int iterY = 0, iterX = 0, x = 0, y = 0, i = 0;
-    while (iterY != gameDataForMap->SizeY) {
-        iterX = 0;
-        while (iterX != gameDataForMap->SizeX) {
-            floeMap[gameDataForMap->SizeX * iterY + iterX].x = iterX;
-            floeMap[gameDataForMap->SizeX * iterY + iterX].y = iterY;
-            for (i = 0; i < floeCount; i++) {
-                floeptr = &floes[i];
-                x = floeptr->x;
-                y = floeptr->y;
-                if (x == iterX && y == iterY) {
-                    floeMap[gameDataForMap->SizeX * iterY + iterX].isFloe = true;
-                }
-            }
-            iterX++;
-        }
-        iterY++;
-
-    }
-}
- */
 
 //Gets one char from input file and returns it
 int getOneCharAsInt(FILE* file){

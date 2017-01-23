@@ -29,101 +29,21 @@
       <file leaf-file-name="main.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="150">
+              <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
               <folding>
                 <element signature="e#54#73#0" expanded="true" />
-                <element signature="e#498#515#0" expanded="true" />
+                <element signature="e#435#452#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="io.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/io.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="action.c" pinned="false" current-in-tab="false">
+      <file leaf-file-name="action.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/action.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="197" column="34" lean-forward="false" selection-start-line="197" selection-start-column="34" selection-end-line="197" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="board3.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/board3.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="board4.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/board4.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="board5.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/board5.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="board6.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/board6.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="board7.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/board7.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="board8.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/board8.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="board9.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/board9.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="495">
+              <caret line="385" column="0" lean-forward="true" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -137,6 +57,7 @@
       <find>isFloe</find>
       <find>penguinPtr</find>
       <find>pickedPenguin</find>
+      <find>playerOnePenguins</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -148,16 +69,17 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/io.h" />
         <option value="$PROJECT_DIR$/map.c" />
-        <option value="$PROJECT_DIR$/cmake-build-debug/fileFormatMock.txt" />
-        <option value="$PROJECT_DIR$/io.c" />
         <option value="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/board1" />
         <option value="$PROJECT_DIR$/board1.txt" />
         <option value="$PROJECT_DIR$/cmake-build-debug/board2.txt" />
         <option value="$PROJECT_DIR$/cmake-build-debug/board3.txt" />
         <option value="$PROJECT_DIR$/action.h" />
         <option value="$PROJECT_DIR$/map.h" />
-        <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/cmake-build-debug/board4.txt" />
+        <option value="$PROJECT_DIR$/cmake-build-debug/fileFormatMock.txt" />
+        <option value="$PROJECT_DIR$/io.c" />
+        <option value="$PROJECT_DIR$/cmake-build-debug/fileFormatMock1.txt" />
+        <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/action.c" />
       </list>
     </option>
@@ -406,7 +328,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="phase=movement board8.txt board9.txt" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Fishes" TARGET_NAME="Fishes" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Fishes" RUN_TARGET_NAME="Fishes">
+    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="phase=movement board6.txt board7.txt" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Fishes" TARGET_NAME="Fishes" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Fishes" RUN_TARGET_NAME="Fishes">
       <envs />
       <method />
     </configuration>
@@ -445,18 +367,18 @@
       <workItem from="1484730085476" duration="3429000" />
       <workItem from="1484756180382" duration="2119000" />
       <workItem from="1484761188179" duration="360000" />
-      <workItem from="1484770192333" duration="13045000" />
+      <workItem from="1484770192333" duration="18666000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122618000" />
+    <option name="totallyTimeSpent" value="128239000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="829" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17291667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17291667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276316" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -475,26 +397,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837838" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37297297" sideWeight="0.10381356" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.8961864" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17584746" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -504,30 +406,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/action.c</url>
-          <line>142</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="50" />
+      <option name="time" value="53" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/io.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" column="27" lean-forward="false" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/fileFormatMock1.txt">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/board1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
@@ -540,7 +427,7 @@
           <caret line="33" column="23" lean-forward="true" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
           <folding>
             <element signature="e#54#73#0" expanded="true" />
-            <element signature="e#498#515#0" expanded="true" />
+            <element signature="e#435#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -589,7 +476,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/fileFormatMock1.txt">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/board1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
@@ -602,7 +489,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#54#73#0" expanded="true" />
-            <element signature="e#498#515#0" expanded="true" />
+            <element signature="e#435#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -651,7 +538,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/fileFormatMock1.txt">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/board1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
@@ -671,12 +558,12 @@
           <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
           <folding>
             <element signature="e#54#73#0" expanded="true" />
-            <element signature="e#498#515#0" expanded="true" />
+            <element signature="e#435#452#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/fileFormatMock1.txt">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/board1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
@@ -756,13 +643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/fileFormatMock1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/io.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -770,13 +650,6 @@
           <folding>
             <element signature="e#94#112#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/fileFormatMock.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -808,25 +681,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/map.c">
+    <entry file="file://$PROJECT_DIR$/map.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state relative-caret-position="197">
+          <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/map.h">
+    <entry file="file://$PROJECT_DIR$/io.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="30" column="10" lean-forward="false" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
-          <folding>
-            <element signature="e#96#114#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="415">
+          <caret line="64" column="18" lean-forward="false" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/board2.txt">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/board8.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -834,22 +705,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/io.c">
+    <entry file="file://$PROJECT_DIR$/map.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+        <state relative-caret-position="377">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.c">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/board9.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="e#54#73#0" expanded="true" />
-            <element signature="e#498#515#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/fileFormatMock.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/board1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="642">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -857,14 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/action.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="197" column="34" lean-forward="false" selection-start-line="197" selection-start-column="34" selection-end-line="197" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -877,7 +753,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/board5.txt">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/board5.tx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -901,7 +777,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/board8.txt">
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding>
+            <element signature="e#54#73#0" expanded="true" />
+            <element signature="e#435#452#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/board5.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -909,10 +796,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/board9.txt">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/board2.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/action.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="385" column="0" lean-forward="true" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
           <folding />
         </state>
       </provider>

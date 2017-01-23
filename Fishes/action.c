@@ -21,6 +21,7 @@ bool checkCoordinates(int x, int y){
     }
     return false;
 }
+
 //checks how many fishes are there on the field we want to move on
 int checkHowManyFishes(struct floe *ourFloe){
     int fishes = ourFloe->fishes;
@@ -32,6 +33,7 @@ bool checkPenguin(struct floe *Floe){
     return Floe->penguins ? true : false; // we need to check whether nr of penguins on a floe is equal to 0
 }
 
+//translates coords to floe
 struct floe* translateToFloe(int x, int y){
     struct floe* floetrans = malloc(sizeof(struct floe));
     int i =0;
@@ -59,7 +61,7 @@ void runPlacement(char* values[]){
     //open that file //we get the name of the file from the console!!!, input and output both
     int i = 0, floeBias = 0, highest = 0, j = 0;
     char inputFileName[12], outputFileName[12], penChar[12];
-    struct floe surroundingFloes[6], *pickedFloe, *bestFloe;
+    struct floe  *pickedFloe, *bestFloe;
 
     struct floe* floePointer = floes;
     struct penguin* penguinPtr = playerOnePenguins, pickedPenguin; //TODO: Make it possible to choose depending on our ID which penguin array we are using
@@ -77,10 +79,16 @@ void runPlacement(char* values[]){
 
     readFile(inputFile,gdPointer,floePointer);
 
+    if(gameData.Player1ID == 2137){
+        penguinPtr = playerOnePenguins;
+    } else if(gameData.Player2ID == 2137){
+        penguinPtr = playerTwoPenguins;
+    }
+
     //loop through all the penguins and pick each one that is free
     for(j = 0; j < gameData.PenguinNum; j++){
-        if(playerOnePenguins[j].x==-1 && playerOnePenguins[j].y==-1){
-            pickedPenguin = playerOnePenguins[j];
+        if(penguinPtr[j].x==-1 && penguinPtr[j].y==-1){
+            pickedPenguin = penguinPtr[j];
             break; //need to protect so it won't get additional penguins from space after the limit is done
         }
     }
@@ -108,9 +116,9 @@ void runPlacement(char* values[]){
     }
     pickedPenguin.x = bestFloe->x;
     pickedPenguin.y = bestFloe->y;
-    bestFloe->penguins = 1; // TODO:change it to hardcoded ID EVERYWHERE SO ASK ADAM HOW TO DISTINGUISH BETWEEN PLAYERS
-    playerOnePenguins[j].x = pickedPenguin.x;
-    playerOnePenguins[j].y = pickedPenguin.y;
+    bestFloe->penguins = 2137;
+    penguinPtr[j].x = pickedPenguin.x;
+    penguinPtr[j].y = pickedPenguin.y;
 
     writeFile(outputFile, gdPointer,floePointer);
     fclose(outputFile);
@@ -151,26 +159,31 @@ void runMovement(char* values[]){
     FILE* inputFile = fopen(inputFileName, "r");
     FILE* outputFile = fopen(outputFileName, "w");
 
-    struct floe surroundingFloes[6], *pickedFloe, *bestFloe, *currFloe, *prevFloe;
+    struct floe *pickedFloe, *bestFloe, *currFloe;
 
 
     struct floe* floePointer = floes;
-    struct penguin* penguinPtr = playerOnePenguins, pickedPenguin; //TODO: Make it possible to choose depending on our ID which penguin array we are using
+    struct penguin* penguinPtr = playerOnePenguins;
     struct GameData* gdPointer = &gameData;
 
     readFile(inputFile, gdPointer, floePointer);
 
+    if(gameData.Player1ID == 2137){
+        penguinPtr = playerOnePenguins;
+    } else if(gameData.Player2ID == 2137){
+        penguinPtr = playerTwoPenguins;
+    }
+
     //loops the penguins array and checks their surroundings to flag whether the player can move any more or not
     for(i = 0; i < gdPointer->PenguinNum; i++){
-        pickedFloe = translateToFloe(playerOnePenguins[i].x, playerOnePenguins[i].y);
+        pickedFloe = translateToFloe(penguinPtr[i].x, penguinPtr[i].y);
         if(!checkSurroundings(pickedFloe)){ //we check if there is at least one floe in surrounding
             isMoveAvailable = false;
         } else{ //returns the first penguin that can still move
             k = i; //not sure if it's right
             isMoveAvailable = true;
             break;
-        } //TODO: Debug closely
-
+        }
     }
     //perform movement
     while(isMoveAvailable){
@@ -187,14 +200,18 @@ void runMovement(char* values[]){
             }
         }
         do{
-            gameData.score1+=pickedFloe->fishes;
+            if(gameData.Player1ID == 2137){
+                gameData.score1+=pickedFloe->fishes;
+            } else if(gameData.Player2ID == 2137){
+                gameData.score2+=pickedFloe->fishes;
+            }
             pickedFloe->fishes = 0;
             pickedFloe->penguins = 0;
             pickedFloe->canBeEntered = false;
             bestFloe = translateToFloe(pickedFloe->x+coords[coordCounter].x, pickedFloe->y+coords[coordCounter].y);
-            bestFloe->penguins = 1;
-            playerOnePenguins[k].x = bestFloe->x;
-            playerOnePenguins[k].y = bestFloe->y;
+            bestFloe->penguins = 2137; //HARDCODED ID
+            penguinPtr[k].x = bestFloe->x;
+            penguinPtr[k].y = bestFloe->y;
             pickedFloe = bestFloe;
         }while(checkIfFree(bestFloe,coordCounter));
         break; //so we know that penguin moved all way on its axis until end
@@ -261,7 +278,7 @@ void runInteractive(){ //add file name to read
 
     int destX = 0, destY = 0, pengX = 0, pengY = 0, choice = 0, penPlacementCount = 0, penMovementCount = 0, i = 0, j = 0, vectX = 0, vectY = 0, k = 0;
 
-    bool isOver = false;
+    bool isOver = false, noMoves = false;
 
     struct floe* floePointer = floes, *oldFloePtr;
 
@@ -292,8 +309,7 @@ void runInteractive(){ //add file name to read
         printf("y: ");
         scanf("%d", &destY);
         //ensure we can place there
-        if (runInteractivePlacement(destX, destY)) { //Check why it saves on the first spot
-            //place penguin
+        if (runInteractivePlacement(destX, destY)) {
             playerOnePenguins[penPlacementCount].x = destX;
             playerOnePenguins[penPlacementCount].y = destY;
             floePointer = translateToFloe(destX, destY);
@@ -312,9 +328,6 @@ void runInteractive(){ //add file name to read
         //READ FILE
         fp = freopen(fileName,"r",fp);
         readFile(fp,gdPointer,floePointer);
-        //ask user to tell us which penguin to move
-        //display the list of penguins with their corresponding coordinates -> this list will later be used as a reference for saving it into
-        //ask user for movement coords
         printf("\nMovement mode:\n choose a penguin from the list of available penguins\n");
         for(i = 0; i < gameData.PenguinNum; i++){
             penguinsptr = &playerOnePenguins[i];
@@ -358,11 +371,16 @@ void runInteractive(){ //add file name to read
             penguinsptr->x = pengX;
             penguinsptr->y = pengY;
             fp = freopen(fileName,"w",fp);
-            writeFile(fp, gdPointer,floePointer); //TODO: Debug it to make sure last run before gameover is run properly
+            writeFile(fp, gdPointer,floePointer);
         }
         printMap(floes, gameData.SizeX, gameData.SizeY);
-        penMovementCount++;
-        if(penMovementCount == gameData.PenguinNum){ //loop through the penguins and check whether they can still move, if not then end game 'use the bool value'
+      for(i = 0; i < gameData.PenguinNum; i++){
+          noMoves = false;
+          if(!checkSurroundings(translateToFloe(playerOnePenguins[i].x, playerOnePenguins[i].y))){
+              noMoves = true;
+          }
+      }
+        if(noMoves){
             isOver = true;
         }
 
@@ -372,7 +390,7 @@ void runInteractive(){ //add file name to read
     }
     fclose(fp);
     //GAME OVER SCREEN + STATS
-    printf("GAME OVER!!!\n");
+    printf("\n\nGAME OVER!!!\n");
     printf("score: %d", gameData.score1);
     return;
 }

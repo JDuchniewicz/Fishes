@@ -10,11 +10,7 @@
  * Here we only asses which course of action to take
  * */
 
-
-//TODO: Set ID, penguin coordinate is the player ID not '1'
-
 //#define interactive //comment to run in automatic
-
 
 int main(int argc, char* argv[]){
 
