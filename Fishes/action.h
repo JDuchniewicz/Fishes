@@ -39,4 +39,6 @@ bool runInteractiveMovement(int x ,int y);
 //function to run interactive mode
 void runInteractive();
 
+void runTournament();
+
 #endif //FISHES_ACTION_H

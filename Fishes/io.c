@@ -82,8 +82,6 @@ void readFile(FILE* file, struct GameData* data, struct floe* floeptr)
     }
     return;
 
-     //MapFloes(data,floeptr,floeCount);
-
 }
 
 void peek(FILE *file)

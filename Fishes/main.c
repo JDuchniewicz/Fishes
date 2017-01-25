@@ -10,13 +10,18 @@
  * Here we only asses which course of action to take
  * */
 
-//#define interactive //comment to run in automatic
+//#define interactive //uncomment to run in interactive
+#define tournament //uncomment to run in tournament
 
 int main(int argc, char* argv[]){
 
     char* placementOp = "phase=placement";
     char* movementOp = "phase=movement";
 
+    #ifdef tournament
+    runTournament();
+    return 0;
+    #endif
     //THIS IS THE INTERACTIVE MODE
     #ifdef interactive
     runInteractive();
